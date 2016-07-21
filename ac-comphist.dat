@@ -1,0 +1,14 @@
+((("global-linum-mode" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("enh-ruby-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("ruby-mode" .
+   [0 0 0 0 0 0 0 0 1])
+  ("add-hook" .
+   [0 0 0 0 0 0 0 1])
+  ("ruby-mode-hook" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("smartparens" .
+   [0 0 0 0 1 0 0 0 0 0 0])
+  ("smartparens-global-mode" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])))
