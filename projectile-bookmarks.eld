@@ -1,1 +1,1 @@
-("~/workspace/")
+("~/.emacs.d/" "~/workspace/")
