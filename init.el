@@ -53,6 +53,8 @@
 
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+
 ;; Multiple Cursors
 
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -105,11 +107,31 @@
 
 ;; Resume Latex Formatting
 
-(add-to-list 'org-latex-classes
-             '("article"
-               "\\documentclass{article}"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+;; (add-to-list 'org-latex-classes
+;;              '("article"
+;;                "\\documentclass{article}"
+;;                ("\\section{%s}" . "\\section*{%s}")
+;;                ("\\subsection{%s}" . "\\subsection*{%s}")
+;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
+;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+
+;; Neo Tree
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
+
+;; flx-ido
+
+;; (require 'flx-ido)
+;; (ido-mode 1)
+;; (ido-everywhere 1)
+;; (flx-ido-mode 1)
+;; ;; disable ido faces to see flx highlights.
+;; (setq ido-enable-flex-matching t)
+;; (setq ido-use-faces nil)
+
+;; Grizzl
+
+(setq projectile-completion-system 'grizzl)

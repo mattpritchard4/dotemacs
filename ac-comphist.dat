@@ -1,4 +1,6 @@
-((("global-linum-mode" .
+((("complete" .
+   [1 0 0 0 0 0 0 0])
+  ("global-linum-mode" .
    [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
   ("enh-ruby-mode" .
    [0 0 0 0 0 0 0 0 0 0 0 0 1])

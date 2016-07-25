@@ -1,0 +1,32 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/t3hsauce/" . #(".emacs.d/" 0 4 (face flx-highlight-face)))
+)
+
+;; ----- ido-work-directory-list -----
+(
+ #("/home/t3hsauce/.emacs.d/" 15 19 (face flx-highlight-face))
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ (#("/home/t3hsauce/.emacs.d/" 15 19 (face flx-highlight-face)) (22422 39438 726793 696000) "init.el" "session.109f50e2553aaf9a9d146947659639417700000021690045" "ac-comphist.dat" "speed-type/" "auto-save-list/" ".git/" "../" "url/" "session.105c6cc9d8e45ea18d14694827833934500000173710046" "./" "projectile-bookmarks.eld" "elpa/" "init.el~")
+
+ ("/home/t3hsauce/" (22422 38631 502811 469000) ".bundle/" ".gnome2_private/" "#.emacs#" "#emacsdemo.org#" ".ICEauthority" ".gem/" "Music/" ".pki/" ".exercism.json" ".rvm/" "Templates/" ".gnome2/" ".local/" "Videos/" ".emacs.d/" ".dbus/" ".aptitude/" ".gimp-2.8/" "bin/" ".profile" ".thumbnails/" "orgtest.org~" "Desktop/" ".gnome/" ".kde/" ".bash_history" ".bashrc" ".gnupg/" "../" ".ssh/" ".gstreamer-0.10/" "rubyhello.rb" ".cache/" ".gconf/" "Public/" "github.pub" "./" ".mkshrc" ".AMD/" "workspace/" "orgtest.org" ".cinnamon/" ".bash_logout" ".config/" ".mozilla/" ".zlogin" "exercism/" "Documents/" ".zshrc" "Pictures/" "github" ".bash_profile" "Downloads/")
+
+ ("/home/t3hsauce/exercism/" (22422 38177 638821 463000) ".git/" "../" "ruby/" "./")
+
+ ("/home/t3hsauce/exercism/ruby/" (22422 37875 898828 106000) "../" "./" "gigasecond/")
+
+ ("/home/t3hsauce/exercism/ruby/gigasecond/" (22422 37875 898828 106000) ".version" "../" "README.md" "./" "gigasecond_test.rb")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
