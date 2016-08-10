@@ -135,3 +135,12 @@
 ;; Grizzl
 
 (setq projectile-completion-system 'grizzl)
+
+;; Mac key configuration
+
+(setq mac-command-modifier 'meta)
+(setq mac-function-modifier 'control)
+
+;; dumb-jump
+
+(dumb-jump-mode)
