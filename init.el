@@ -144,3 +144,22 @@
 ;; dumb-jump
 
 (dumb-jump-mode)
+
+;; MIT Scheme
+
+(setq scheme-program-name  "/usr/local/bin/scheme")
+
+;; Buffer Move
+
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+
+;; js2-mode
+
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+(require 'nodejs-repl)
+(require 'js-comint)
+(add-to-list 'load-path "/usr/local/bin/node")

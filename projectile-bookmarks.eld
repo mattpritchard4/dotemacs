@@ -1,1 +1,1 @@
-("~/workspace/gatherer/" "~/.emacs.d/" "~/.emacs.d/workspace/gatherer/" "~/exercism/" "~/workspace/ruby/hello/" "~/workspace/")
+("~/.emacs.d/" "/usr/local/" "~/workspace/gatherer/" "~/.emacs.d/workspace/gatherer/" "~/exercism/" "~/workspace/ruby/hello/" "~/workspace/")
