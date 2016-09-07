@@ -163,3 +163,8 @@
 (require 'nodejs-repl)
 (require 'js-comint)
 (add-to-list 'load-path "/usr/local/bin/node")
+
+;; org bullets
+
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
