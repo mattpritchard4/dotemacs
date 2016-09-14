@@ -4,8 +4,10 @@
 (setq mc/cmds-to-run-for-all
       '(
 	enh-ruby-electric-brace
+	indent-for-tab-command
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	ace-jump-mode
 	))

@@ -10,22 +10,6 @@
 
 ;; Custom theme
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (atom-one-dark)))
- '(custom-safe-themes
-   (quote
-    ("59171e7f5270c0f8c28721bb96ae56d35f38a0d86da35eab4001aebbd99271a8" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
 ;; Ace Jump Mode
 
 (add-to-list 'load-path "/full/path/where/ace-jump-mode.el/in/")
@@ -52,6 +36,8 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
 
 ;; Multiple Cursors
 
@@ -88,7 +74,7 @@
 ;; Font Settings
 
 (add-to-list 'default-frame-alist
-             '(font . "DejaVu Sans Mono-13"))
+             '(font . "Menlo 13"))
 
 ;; Line Numbering
 
@@ -102,3 +88,86 @@
 ;; Pending Delete
 
 (delete-selection-mode 1)
+
+;; Resume Latex Formatting
+
+;; (add-to-list 'org-latex-classes
+;;              '("article"
+;;                "\\documentclass{article}"
+;;                ("\\section{%s}" . "\\section*{%s}")
+;;                ("\\subsection{%s}" . "\\subsection*{%s}")
+;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
+;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+
+;; Neo Tree
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
+
+;; flx-ido
+
+;; (require 'flx-ido)
+;; (ido-mode 1)
+;; (ido-everywhere 1)
+;; (flx-ido-mode 1)
+;; ;; disable ido faces to see flx highlights.
+;; (setq ido-enable-flex-matching t)
+;; (setq ido-use-faces nil)
+
+;; Grizzl
+
+(setq projectile-completion-system 'grizzl)
+
+;; Mac key configuration
+
+(setq mac-command-modifier 'meta)
+(setq mac-function-modifier 'control)
+
+;; dumb-jump
+
+(dumb-jump-mode)
+
+;; MIT Scheme
+
+(setq scheme-program-name  "/usr/local/bin/scheme")
+
+;; Buffer Move
+
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+
+;; js2-mode
+
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+(require 'nodejs-repl)
+(require 'js-comint)
+(add-to-list 'load-path "/usr/local/bin/node")
+
+;; org bullets
+
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(require 'sublimity)
+(require 'sublimity-scroll)
+(sublimity-mode 1)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("59171e7f5270c0f8c28721bb96ae56d35f38a0d86da35eab4001aebbd99271a8" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
