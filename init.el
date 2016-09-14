@@ -162,6 +162,14 @@
 (require 'indent-guide)
 (indent-guide-global-mode)
 
+
+;; yasnippet
+
+(add-to-list 'load-path
+              "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
+
 ;; custom theme
 
 (custom-set-variables
