@@ -152,6 +152,9 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
+
+;; sublimity
+
 (require 'sublimity)
 (require 'sublimity-scroll)
 (sublimity-mode 1)
@@ -177,10 +180,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (atom-one-dark)))
+ '(custom-enabled-themes (quote (monokai)))
  '(custom-safe-themes
    (quote
-    ("59171e7f5270c0f8c28721bb96ae56d35f38a0d86da35eab4001aebbd99271a8" default))))
+    ("a800120841da457aa2f86b98fb9fd8df8ba682cebde033d7dbf8077c1b7d677a" "59171e7f5270c0f8c28721bb96ae56d35f38a0d86da35eab4001aebbd99271a8" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
