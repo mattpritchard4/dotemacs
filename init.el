@@ -173,6 +173,13 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
+
+;; org-tree-slide
+
+(require 'org-tree-slide)
+(global-set-key (kbd "<f9>") 'org-tree-slide-mode)
+   (global-set-key (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)
+
 ;; custom theme
 
 (custom-set-variables
