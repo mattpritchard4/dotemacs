@@ -147,6 +147,10 @@
 (require 'js-comint)
 (add-to-list 'load-path "/usr/local/bin/node")
 
+;; org-mode
+
+(setq org-log-done 'time)
+
 ;; org bullets
 
 (require 'org-bullets)
@@ -157,8 +161,6 @@
 
 (require 'sublimity)
 (require 'sublimity-scroll)
-(sublimity-mode 1)
-
 
 ;; indent guide
 
@@ -185,6 +187,9 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
+;; racket path
+
+(setq geiser-racket-binary "/usr/local/bin/Racket")
 
 ;; custom theme
 
