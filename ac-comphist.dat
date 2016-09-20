@@ -1,4 +1,12 @@
-((("sublimity" .
+((("font" .
+   [1 0 0 0])
+  ("f" .
+   [1])
+  ("default-frame-alist" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("add-to-list" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("sublimity" .
    [1 0 0 0 0 0 0 0 0])
   ("Contact" .
    [2 0 0 0 0 0 0])

@@ -72,8 +72,11 @@
 
 ;; Font Settings
 
+;; (add-to-list 'default-frame-alist
+;;              '(font . "Deja Vu Sans Mono 13"))
+
 (add-to-list 'default-frame-alist
-             '(font . "Deja Vu Sans Mono 13"))
+	     '(font . "Menlo 13"))
 
 ;; Line Numbering
 
