@@ -204,7 +204,10 @@
  '(custom-enabled-themes (quote (monokai)))
  '(custom-safe-themes
    (quote
-    ("a800120841da457aa2f86b98fb9fd8df8ba682cebde033d7dbf8077c1b7d677a" "59171e7f5270c0f8c28721bb96ae56d35f38a0d86da35eab4001aebbd99271a8" default))))
+    ("a800120841da457aa2f86b98fb9fd8df8ba682cebde033d7dbf8077c1b7d677a" "59171e7f5270c0f8c28721bb96ae56d35f38a0d86da35eab4001aebbd99271a8" default)))
+ '(package-selected-packages
+   (quote
+    (yasnippet websocket web-mode sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens skewer-mode sicp scss-mode rvm robe rainbow-delimiters racket-mode projectile-rails powerline pastebin org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl geiser fountain-mode flx-ido expand-region enh-ruby-mode emmet-mode dumb-jump buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
