@@ -3,8 +3,10 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	dabbrev-completion
 	enh-ruby-electric-brace
 	indent-for-tab-command
+	insert-lozenge
 	))
 
 (setq mc/cmds-to-run-once

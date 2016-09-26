@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: body 
+# key: body
+# --
+
+<body bgcolor="$1" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="padding-top:0px; padding-right:0px; padding-bottom:0px; padding-left:0px; margin-top:0px; margin-right:0px; margin-bottom:0px; margin-left:0px; background-color:$2;">
