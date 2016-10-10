@@ -137,10 +137,10 @@
 
 ;; Buffer Move
 
-(global-set-key (kbd "<C-S-up>")     'buf-move-up)
-(global-set-key (kbd "<C-S-down>")   'buf-move-down)
-(global-set-key (kbd "<C-S-left>")   'buf-move-left)
-(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+(global-set-key (kbd "<M-S-up>")     'buf-move-up)
+(global-set-key (kbd "<M-S-down>")   'buf-move-down)
+(global-set-key (kbd "<M-S-left>")   'buf-move-left)
+(global-set-key (kbd "<M-S-right>")  'buf-move-right)
 
 ;; js2-mode
 
@@ -187,7 +187,7 @@
 ;; yasnippet
 
 (add-to-list 'load-path
-              "~/.emacs.d/plugins/yasnippet")
+	     "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
 
@@ -196,7 +196,7 @@
 
 (require 'org-tree-slide)
 (global-set-key (kbd "<f9>") 'org-tree-slide-mode)
-   (global-set-key (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)
+(global-set-key (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)
 
 ;; web mode
 (require 'web-mode)
@@ -205,6 +205,11 @@
 ;; racket path
 
 (setq geiser-racket-binary "/usr/local/bin/Racket")
+(add-to-list 'load-path "/usr/local/bin/Racket")
+
+;; pollen mode
+
+(require 'pollen-mode)
 
 ;; enable lozenge for Pollen
 ;; ◊◊◊◊◊◊◊◊◊◊◊◊◊
@@ -217,13 +222,19 @@
   ;; insert the proper character
   (insert (make-char
            'mule-unicode-2500-33ff 34 42)))
- 
+
 ;; Bind key to M-\ a la DrRacket for lambda
 (global-set-key "\M-\\" 'insert-lozenge)
 
 ;; kill the gui
 
 (tool-bar-mode -1)
+
+;; web mode snippet
+
+(setq web-mode-ac-sources-alist
+      '(("html" . (ac-source-emmet-html-aliases ac-source-emmet-html-snippets))
+	("css" . (ac-source-css-property ac-source-emmet-css-snippets))))
 
 ;; custom theme
 
@@ -238,7 +249,8 @@
  '(custom-enabled-themes (quote (monokai)))
  '(custom-safe-themes
    (quote
-    ("1160f5fc215738551fce39a67b2bcf312ed07ef3568d15d53c87baa4fd1f4d4e" "a800120841da457aa2f86b98fb9fd8df8ba682cebde033d7dbf8077c1b7d677a" "59171e7f5270c0f8c28721bb96ae56d35f38a0d86da35eab4001aebbd99271a8" default)))
+    ("42ba25fad91db26bfa0130161412d49804ff27e6a09bf45f1a8268511300d981" "1160f5fc215738551fce39a67b2bcf312ed07ef3568d15d53c87baa4fd1f4d4e" "a800120841da457aa2f86b98fb9fd8df8ba682cebde033d7dbf8077c1b7d677a" "59171e7f5270c0f8c28721bb96ae56d35f38a0d86da35eab4001aebbd99271a8" default)))
+ '(fci-rule-color "#20240E")
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
  '(highlight-tail-colors
    (quote
@@ -253,7 +265,7 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (yasnippet websocket web-mode sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens skewer-mode sicp scss-mode rvm robe rainbow-delimiters racket-mode projectile-rails powerline pastebin org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl geiser fountain-mode flx-ido expand-region enh-ruby-mode emmet-mode dumb-jump buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
+    (god-mode slack sexy-monochrome-theme ruby-compilation ruby-refactor rubocop pollen-mode yaml-mode rspec-mode scribble-mode yasnippet websocket web-mode sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens skewer-mode sicp scss-mode rvm robe rainbow-delimiters racket-mode projectile-rails powerline pastebin org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl geiser fountain-mode flx-ido expand-region enh-ruby-mode emmet-mode dumb-jump buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(vc-annotate-background nil)

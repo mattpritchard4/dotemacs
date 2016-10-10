@@ -7,6 +7,7 @@
 	enh-ruby-electric-brace
 	indent-for-tab-command
 	insert-lozenge
+	sgml-slash
 	))
 
 (setq mc/cmds-to-run-once

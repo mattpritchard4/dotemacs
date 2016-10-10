@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: td
+# key: td
+# --
+
+<td align="$1" bgcolor="$2" valign="$3">
