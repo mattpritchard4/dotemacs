@@ -54,6 +54,9 @@
 ;; Auto Complete
 
 (ac-config-default)
+(setq ac-ignore-case nil)
+(add-to-list 'ac-modes 'enh-ruby-mode)
+(add-to-list 'ac-modes 'web-mode)
 
 ;; Projectile
 
@@ -265,7 +268,7 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (god-mode slack sexy-monochrome-theme ruby-compilation ruby-refactor rubocop pollen-mode yaml-mode rspec-mode scribble-mode yasnippet websocket web-mode sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens skewer-mode sicp scss-mode rvm robe rainbow-delimiters racket-mode projectile-rails powerline pastebin org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl geiser fountain-mode flx-ido expand-region enh-ruby-mode emmet-mode dumb-jump buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
+    (rainbow-mode god-mode slack sexy-monochrome-theme ruby-compilation ruby-refactor rubocop pollen-mode yaml-mode rspec-mode scribble-mode yasnippet websocket web-mode sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens skewer-mode sicp scss-mode rvm robe rainbow-delimiters racket-mode projectile-rails powerline pastebin org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl geiser fountain-mode flx-ido expand-region enh-ruby-mode emmet-mode dumb-jump buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(vc-annotate-background nil)
