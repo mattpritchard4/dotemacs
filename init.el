@@ -152,6 +152,8 @@
 (require 'nodejs-repl)
 (require 'js-comint)
 (add-to-list 'load-path "/usr/local/bin/node")
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
 
 ;; org-mode
 
@@ -174,6 +176,13 @@
 
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;; org ioslide
+
+(require 'ox-ioslide)
+(require 'ox-html5slide)
+(require 'ox-reveal)
+(setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
 
 
 ;; sublimity
@@ -268,7 +277,7 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (rainbow-mode god-mode slack sexy-monochrome-theme ruby-compilation ruby-refactor rubocop pollen-mode yaml-mode rspec-mode scribble-mode yasnippet websocket web-mode sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens skewer-mode sicp scss-mode rvm robe rainbow-delimiters racket-mode projectile-rails powerline pastebin org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl geiser fountain-mode flx-ido expand-region enh-ruby-mode emmet-mode dumb-jump buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
+    (bufshow eimp epresent ox-twbs ox-ioslide ox-html5slide ox-impress-js ox-reveal rainbow-mode god-mode slack sexy-monochrome-theme ruby-compilation ruby-refactor rubocop pollen-mode yaml-mode rspec-mode scribble-mode yasnippet websocket web-mode sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens skewer-mode sicp scss-mode rvm robe rainbow-delimiters racket-mode projectile-rails powerline pastebin org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl geiser fountain-mode flx-ido expand-region enh-ruby-mode emmet-mode dumb-jump buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(vc-annotate-background nil)

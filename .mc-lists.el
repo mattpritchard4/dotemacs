@@ -5,6 +5,7 @@
       '(
 	dabbrev-completion
 	enh-ruby-electric-brace
+	helm-show-kill-ring
 	indent-for-tab-command
 	insert-lozenge
 	sgml-slash
