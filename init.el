@@ -210,9 +210,14 @@
 (global-set-key (kbd "<f9>") 'org-tree-slide-mode)
 (global-set-key (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)
 
-;; web mode
+;; web-mode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-hook 'web-mode-hook 'emmet-mode)
+
+;; html-mode
+
+(add-hook 'html-mode-hook 'emmet-mode)
 
 ;; racket path
 
