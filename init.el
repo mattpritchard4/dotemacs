@@ -185,11 +185,6 @@
 (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
 
 
-;; sublimity
-
-(require 'sublimity)
-(require 'sublimity-scroll)
-
 ;; indent guide
 
 (require 'indent-guide)
@@ -327,10 +322,11 @@
   (insert (format-time-string "%a %b %e %Y, %R")))
 (global-set-key "\C-ct" 'insert-timestamp)
 
-;;; Tabbar keys
-
-(define-key tabbar-mode-map [C-prior] 'tabbar-backward-tab)
-(define-key tabbar-mode-map [C-next] 'tabbar-forward-tab)
+;;
+;; Tabbar keys
+;; (require 'tabbar)
+;; (define-key tabbar-mode-map [C-left] 'tabbar-backward-tab)
+;; (define-key tabbar-mode-map [C-right] 'tabbar-forward-tab)
 
 ;; VC mode stuff
 
