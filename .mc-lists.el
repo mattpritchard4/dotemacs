@@ -3,15 +3,16 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-	dabbrev-completion
-	enh-ruby-electric-brace
-	helm-show-kill-ring
-	indent-for-tab-command
-	insert-lozenge
-	sgml-slash
-	))
+        dabbrev-completion
+        enh-ruby-electric-brace
+        helm-show-kill-ring
+        indent-for-tab-command
+        insert-lozenge
+        sgml-slash
+        ))
 
 (setq mc/cmds-to-run-once
       '(
-	ace-jump-mode
-	))
+        ace-jump-mode
+        helm-M-x
+        ))
