@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: img
+# key: img
+# --
+<img src="$5" width="$1" height="$2" style="display:block; padding:0px; margin:0px; border:none;" border="0" alt="$3" title="$4">

@@ -4,20 +4,15 @@
 (package-initialize)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
-
-;; FACT: Dwight Schrute has a mode
-
-(require 'schrute)
-(setf schrute-shortcuts-commands '((avy-goto-line   . (next-line previous-line))
-                                   (avy-goto-word-1 . (left-char right-char))))
-(schrute-mode)
-
 ;; scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 3))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 1) ;; keyboard scroll one line at a time
 
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 3))) ;; one line at a time
+
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+
+(setq scroll-step 1) ;; keyboard scroll one line at a time
 ;; Ace Jump Mode
 
 (add-to-list 'load-path "/full/path/where/ace-jump-mode.el/in/")
@@ -36,9 +31,6 @@
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
-
-;; avy
-(avy-setup-default)
 
 ;; Helm Mode
 
@@ -497,7 +489,7 @@
  '(minimap-window-location (quote right))
  '(package-selected-packages
    (quote
-    (avy schrute mode-icons tabbar evil yasnippet yaml-mode web-mode vline sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode projectile-rails powerline pollen-mode pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flx-ido expand-region epresent enh-ruby-mode emmet-mode eimp dumb-jump capture camcorder bufshow buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
+    (schrute mode-icons tabbar evil yasnippet yaml-mode web-mode vline sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode projectile-rails powerline pollen-mode pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flx-ido expand-region epresent enh-ruby-mode emmet-mode eimp dumb-jump capture camcorder bufshow buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
  '(sublimity-scroll-weight 10))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
