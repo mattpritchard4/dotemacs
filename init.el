@@ -11,6 +11,9 @@
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
+;; startup frame size
+(add-to-list 'default-frame-alist '(height . 80))
+(add-to-list 'default-frame-alist '(width . 80))
 
 ;; magit-mode
 
@@ -460,7 +463,6 @@
    (quote
     ("a800120841da457aa2f86b98fb9fd8df8ba682cebde033d7dbf8077c1b7d677a" default)))
  '(minimap-always-recenter t)
- '(minimap-mode t)
  '(minimap-window-location (quote right))
  '(package-selected-packages
    (quote
