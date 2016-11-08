@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        avy-goto-char
         dabbrev-completion
         enh-ruby-electric-brace
         helm-show-kill-ring

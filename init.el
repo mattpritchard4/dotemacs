@@ -15,6 +15,9 @@
 (add-to-list 'default-frame-alist '(height . 80))
 (add-to-list 'default-frame-alist '(width . 80))
 
+;; pdf-tools
+(pdf-tools-install)
+(add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
 ;; magit-mode
 
 (global-set-key (kbd "C-x m") 'magit-status)
@@ -22,7 +25,7 @@
 ;; avy
 (avy-setup-default)
 (global-set-key (kbd "C-c SPC") 'avy-goto-char)
-
+(global-set-key (kbd "M-g M-g") 'avy-goto-line)
 ;; Helm Mode
 
 (helm-mode 1)
@@ -466,7 +469,7 @@
  '(minimap-window-location (quote right))
  '(package-selected-packages
    (quote
-    (avy schrute mode-icons tabbar evil yasnippet yaml-mode web-mode vline sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode projectile-rails powerline pollen-mode pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flx-ido expand-region epresent enh-ruby-mode emmet-mode eimp dumb-jump capture camcorder bufshow buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
+    (jabber pdf-tools avy schrute mode-icons tabbar evil yasnippet yaml-mode web-mode vline sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode projectile-rails powerline pollen-mode pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flx-ido expand-region epresent enh-ruby-mode emmet-mode eimp dumb-jump capture camcorder bufshow buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
  '(sublimity-scroll-weight 10))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

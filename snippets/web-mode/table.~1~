@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: table
+# key: table
+# --
+<img src="$1" width="$2" height="$3" alt="$4" title="$5" style="margin:0; padding:0; display:block; border:none;"/>
