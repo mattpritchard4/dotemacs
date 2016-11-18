@@ -6,34 +6,37 @@
              '("melpa" . "https://melpa.org/packages/"))
 
 ;; scroll one line at a time (less "jumpy" than defaults)
+
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 3))) ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
 ;; startup frame size
+
 (add-to-list 'default-frame-alist '(height . 80))
 (add-to-list 'default-frame-alist '(width . 80))
 
 ;; pdf-tools
+
 (pdf-tools-install)
 (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
+
 ;; magit-mode
 
 (global-set-key (kbd "C-x m") 'magit-status)
 
 ;; avy
+
 (avy-setup-default)
 (global-set-key (kbd "C-c SPC") 'avy-goto-char)
 (global-set-key (kbd "M-g M-g") 'avy-goto-line)
+
 ;; Helm Mode
 
 (helm-mode 1)
-
 (global-set-key (kbd "M-x") 'helm-M-x)
-
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 
 ;; Multiple Cursors
@@ -197,6 +200,8 @@
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-hook 'web-mode-hook 'emmet-mode)
+(add-hook 'web-mode-hook 'rainbow-mode)
+(add-hook 'html-mode-hook 'web-mode)
 
 ;; html-mode
 
@@ -252,15 +257,16 @@
 (setq search-default-mode #'char-fold-to-regexp)
 
 ;; make indentation commands use space only (never the tab character)
+
 (setq-default indent-tabs-mode nil)
 
 ;; Don't load out of date .elc files
+
 (setq load-prefer-newer t)
 
 ;;; Add some smart things
 
 (global-hl-line-mode)
-
 (setq tramp-default-method "ssh")
 
 ;; Watch the garbage collector in action.

@@ -10,10 +10,12 @@
         indent-for-tab-command
         insert-lozenge
         sgml-slash
+        yas-expand
         ))
 
 (setq mc/cmds-to-run-once
       '(
         ace-jump-mode
         helm-M-x
+        toggle-frame-fullscreen
         ))

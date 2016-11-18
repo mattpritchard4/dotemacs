@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: live
+# key: live
+# --
+style="font-family:Helvetica, Arial, sans-serif; font-size:$1px; color:#$2;" width="$3" height="$4"
