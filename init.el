@@ -1,3 +1,12 @@
+(add-to-list 'load-path "~/init_benchmark/benchmark-init-el/")
+(require 'benchmark-init-loaddefs)
+(benchmark-init/activate)
+
+;; startup frame size
+
+(add-to-list 'default-frame-alist '(height . 80))
+(add-to-list 'default-frame-alist '(width . 80))
+
 ;; Package Management
 
 (require 'package)
@@ -11,16 +20,6 @@
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
-
-;; startup frame size
-
-(add-to-list 'default-frame-alist '(height . 80))
-(add-to-list 'default-frame-alist '(width . 80))
-
-;; pdf-tools
-
-(pdf-tools-install)
-(add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
 
 ;; magit-mode
 
@@ -95,18 +94,6 @@
 
 (delete-selection-mode 1)
 
-;; Resume Latex Formatting
-
-;; (add-to-list 'org-latex-classes
-;;              '("article"
-;;                "\\documentclass{article}"
-;;                ("\\section{%s}" . "\\section*{%s}")
-;;                ("\\subsection{%s}" . "\\subsection*{%s}")
-;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
-;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
-
 ;; Neo Tree
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
@@ -149,32 +136,10 @@
 
 (setq org-log-done 'time)
 
-(require 'org)
-(require 'ob)
-
-;; make org mode allow eval of some langs
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (clojure . t)
-   (python . t)
-   (ruby . t)))
-
-(setq org-src-fontify-natively t)
-
 ;; org bullets
 
 (require 'org-bullets)
-
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-
-;; org ioslide
-
-(require 'ox-ioslide)
-(require 'ox-html5slide)
-(require 'ox-reveal)
-(setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
-
 
 ;; indent guide
 
@@ -188,13 +153,6 @@
 	     "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
-
-
-;; org-tree-slide
-
-(require 'org-tree-slide)
-(global-set-key (kbd "<f9>") 'org-tree-slide-mode)
-(global-set-key (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)
 
 ;; web-mode
 (require 'web-mode)
@@ -475,7 +433,7 @@
  '(minimap-window-location (quote right))
  '(package-selected-packages
    (quote
-    (jabber pdf-tools avy schrute mode-icons tabbar evil yasnippet yaml-mode web-mode vline sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode projectile-rails powerline pollen-mode pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flx-ido expand-region epresent enh-ruby-mode emmet-mode eimp dumb-jump capture camcorder bufshow buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
+    (markdown-mode jabber pdf-tools avy schrute mode-icons tabbar evil yasnippet yaml-mode web-mode vline sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode projectile-rails powerline pollen-mode pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flx-ido expand-region epresent enh-ruby-mode emmet-mode eimp dumb-jump capture camcorder bufshow buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
  '(sublimity-scroll-weight 10))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
