@@ -1,3 +1,12 @@
+(add-to-list 'load-path "~/init_benchmark/benchmark-init-el/")
+(require 'benchmark-init-loaddefs)
+(benchmark-init/activate)
+
+;; startup frame size
+
+(add-to-list 'default-frame-alist '(height . 80))
+(add-to-list 'default-frame-alist '(width . 80))
+
 ;; Package Management
 
 (require 'package)
@@ -5,49 +14,28 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
 
-;; FACT: Dwight Schrute has a mode
-
-(require 'schrute)
-(setf schrute-shortcuts-commands '((avy-goto-line   . (next-line previous-line))
-                                   (avy-goto-word-1 . (left-char right-char))))
-(schrute-mode)
-
 ;; scroll one line at a time (less "jumpy" than defaults)
 
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 3))) ;; one line at a time
-
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-
 (setq scroll-step 1) ;; keyboard scroll one line at a time
-;; Ace Jump Mode
 
-(add-to-list 'load-path "/full/path/where/ace-jump-mode.el/in/")
-(autoload
-  'ace-jump-mode
-  "ace-jump-mode"
-  "Emacs quick move minor mode"
-  t)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+;; magit-mode
 
-(autoload
-  'ace-jump-mode-pop-mark
-  "ace-jump-mode"
-  "Ace jump back:-)"
-  t)
-(eval-after-load "ace-jump-mode"
-  '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+(global-set-key (kbd "C-x m") 'magit-status)
+
+;; avy
+
+(avy-setup-default)
+(global-set-key (kbd "C-c SPC") 'avy-goto-char)
+(global-set-key (kbd "M-g M-g") 'avy-goto-line)
 
 ;; Helm Mode
 
 (helm-mode 1)
-
 (global-set-key (kbd "M-x") 'helm-M-x)
-
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 
 ;; Multiple Cursors
@@ -91,7 +79,7 @@
 ;;              '(font . "Deja Vu Sans Mono 13"))
 
 (add-to-list 'default-frame-alist
-	     '(font . "Menlo 13"))
+	     '(font . "Fira Mono 13"))
 
 ;; Line Numbering
 
@@ -106,34 +94,9 @@
 
 (delete-selection-mode 1)
 
-;; Resume Latex Formatting
-
-;; (add-to-list 'org-latex-classes
-;;              '("article"
-;;                "\\documentclass{article}"
-;;                ("\\section{%s}" . "\\section*{%s}")
-;;                ("\\subsection{%s}" . "\\subsection*{%s}")
-;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
-;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
-
 ;; Neo Tree
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
-
-;; minimap
-(require 'minimap)
-
-;; flx-ido
-
-;; (require 'flx-ido)
-;; (ido-mode 1)
-;; (ido-everywhere 1)
-;; (flx-ido-mode 1)
-;; ;; disable ido faces to see flx highlights.
-;; (setq ido-enable-flex-matching t)
-;; (setq ido-use-faces nil)
 
 ;; Grizzl
 
@@ -177,6 +140,7 @@
 (require 'ob)
 
 ;; make org mode allow eval of some langs
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)
@@ -189,16 +153,7 @@
 ;; org bullets
 
 (require 'org-bullets)
-
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-
-;; org ioslide
-
-(require 'ox-ioslide)
-(require 'ox-html5slide)
-(require 'ox-reveal)
-(setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
-
 
 ;; indent guide
 
@@ -213,17 +168,12 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
-
-;; org-tree-slide
-
-(require 'org-tree-slide)
-(global-set-key (kbd "<f9>") 'org-tree-slide-mode)
-(global-set-key (kbd "S-<f9>") 'org-tree-slide-skip-done-toggle)
-
 ;; web-mode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-hook 'web-mode-hook 'emmet-mode)
+(add-hook 'web-mode-hook 'rainbow-mode)
+(add-hook 'html-mode-hook 'web-mode)
 
 ;; html-mode
 
@@ -239,7 +189,7 @@
 (require 'pollen-mode)
 
 ;; enable lozenge for Pollen
-;; ◊◊◊◊◊◊◊◊◊◊◊◊◊
+;; ◊◊◊◊◊◊◊◊◊◊◊◊
 ;; 'mule-unicode part from
 ;; https://lists.gnu.org/archive/html//emacs-devel/2005-03/msg01187.html
 (defun insert-lozenge ()
@@ -279,15 +229,16 @@
 (setq search-default-mode #'char-fold-to-regexp)
 
 ;; make indentation commands use space only (never the tab character)
+
 (setq-default indent-tabs-mode nil)
 
 ;; Don't load out of date .elc files
+
 (setq load-prefer-newer t)
 
 ;;; Add some smart things
 
 (global-hl-line-mode)
-
 (setq tramp-default-method "ssh")
 
 ;; Watch the garbage collector in action.
@@ -493,11 +444,10 @@
    (quote
     ("a800120841da457aa2f86b98fb9fd8df8ba682cebde033d7dbf8077c1b7d677a" default)))
  '(minimap-always-recenter t)
- '(minimap-mode t)
  '(minimap-window-location (quote right))
  '(package-selected-packages
    (quote
-    (avy schrute mode-icons tabbar evil yasnippet yaml-mode web-mode vline sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode projectile-rails powerline pollen-mode pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flx-ido expand-region epresent enh-ruby-mode emmet-mode eimp dumb-jump capture camcorder bufshow buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
+    (ob-browser markdown-mode jabber pdf-tools avy schrute mode-icons tabbar evil yasnippet yaml-mode web-mode vline sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode projectile-rails powerline pollen-mode pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flx-ido expand-region epresent enh-ruby-mode emmet-mode eimp dumb-jump capture camcorder bufshow buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
  '(sublimity-scroll-weight 10))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -505,3 +455,33 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(minimap-active-region-background ((t (:background "DarkSlateGray4")))))
+
+
+;; split window toggle
+
+(defun toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+         (next-win-buffer (window-buffer (next-window)))
+         (this-win-edges (window-edges (selected-window)))
+         (next-win-edges (window-edges (next-window)))
+         (this-win-2nd (not (and (<= (car this-win-edges)
+                     (car next-win-edges))
+                     (<= (cadr this-win-edges)
+                     (cadr next-win-edges)))))
+         (splitter
+          (if (= (car this-win-edges)
+             (car (window-edges (next-window))))
+          'split-window-horizontally
+        'split-window-vertically)))
+    (delete-other-windows)
+    (let ((first-win (selected-window)))
+      (funcall splitter)
+      (if this-win-2nd (other-window 1))
+      (set-window-buffer (selected-window) this-win-buffer)
+      (set-window-buffer (next-window) next-win-buffer)
+      (select-window first-win)
+      (if this-win-2nd (other-window 1))))))
+
+(global-set-key (kbd "C-x C-\\") 'toggle-window-split)

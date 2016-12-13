@@ -2,6 +2,9 @@
 (require 'benchmark-init-loaddefs)
 (benchmark-init/activate)
 
+(add-to-list 'exec-path "/usr/local/bin")
+(setenv "PATH" (mapconcat 'identity exec-path ":"))
+(add-to-list 'exec-path "/Library/TeX/texbin/")
 ;; startup frame size
 
 (add-to-list 'default-frame-alist '(height . 80))
@@ -79,7 +82,7 @@
 ;;              '(font . "Deja Vu Sans Mono 13"))
 
 (add-to-list 'default-frame-alist
-	     '(font . "Menlo 13"))
+	     '(font . "Fira Mono 13"))
 
 ;; Line Numbering
 
@@ -136,6 +139,24 @@
 
 (setq org-log-done 'time)
 
+(require 'org)
+(require 'ob)
+;; (setq org-html-htmlize-output-type 'inline-css) ;; default
+(setq org-html-htmlize-output-type 'css)
+;; (setq org-html-htmlize-font-prefix "") ;; default
+(setq org-html-htmlize-font-prefix "org-")
+
+;; make org mode allow eval of some langs
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (clojure . t)
+   (python . t)
+   (ruby . t)))
+
+(setq org-src-fontify-natively t)
+
 ;; org bullets
 
 (require 'org-bullets)
@@ -175,7 +196,7 @@
 (require 'pollen-mode)
 
 ;; enable lozenge for Pollen
-;; ◊◊◊◊◊◊◊◊◊◊◊◊◊
+;; ◊◊◊◊◊◊◊◊◊◊◊◊
 ;; 'mule-unicode part from
 ;; https://lists.gnu.org/archive/html//emacs-devel/2005-03/msg01187.html
 (defun insert-lozenge ()
@@ -433,7 +454,7 @@
  '(minimap-window-location (quote right))
  '(package-selected-packages
    (quote
-    (markdown-mode jabber pdf-tools avy schrute mode-icons tabbar evil yasnippet yaml-mode web-mode vline sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode projectile-rails powerline pollen-mode pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flx-ido expand-region epresent enh-ruby-mode emmet-mode eimp dumb-jump capture camcorder bufshow buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
+    (ob-browser markdown-mode jabber pdf-tools avy schrute mode-icons tabbar evil yasnippet yaml-mode web-mode vline sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode projectile-rails powerline pollen-mode pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flx-ido expand-region epresent enh-ruby-mode emmet-mode eimp dumb-jump capture camcorder bufshow buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
  '(sublimity-scroll-weight 10))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

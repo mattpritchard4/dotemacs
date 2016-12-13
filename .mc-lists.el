@@ -9,6 +9,8 @@
         helm-show-kill-ring
         indent-for-tab-command
         insert-lozenge
+        kill-region
+        org-self-insert-command
         sgml-slash
         yas-expand
         ))
