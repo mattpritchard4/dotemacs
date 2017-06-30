@@ -10,6 +10,7 @@
         indent-for-tab-command
         insert-lozenge
         kill-region
+        markdown-exdent-or-delete
         org-self-insert-command
         sgml-slash
         yas-expand
