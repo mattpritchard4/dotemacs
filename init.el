@@ -1,8 +1,11 @@
 (menu-bar-mode 0)
+(scroll-bar-mode -1)
 
 (add-to-list 'exec-path "/usr/local/bin")
 (setenv "PATH" (mapconcat 'identity exec-path ":"))
 (add-to-list 'exec-path "/Library/TeX/texbin/")
+
+
 ;; startup frame size
 
 (add-to-list 'default-frame-alist '(height . 110))
@@ -18,7 +21,6 @@
 ;; scroll one line at a time (less "jumpy" than defaults)
 
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 3))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
@@ -461,27 +463,44 @@
       (if this-win-2nd (other-window 1))))))
 
 (global-set-key (kbd "C-x C-\\") 'toggle-window-split)
-
-;; custom theme
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (monokai)))
+ '(custom-enabled-themes (quote (doom-molokai)))
  '(custom-safe-themes
    (quote
-    ("c7a9a68bd07e38620a5508fef62ec079d274475c8f92d75ed0c33c45fbe306bc" "a800120841da457aa2f86b98fb9fd8df8ba682cebde033d7dbf8077c1b7d677a" default)))
- '(minimap-always-recenter t)
- '(minimap-window-location (quote right))
+    ("f67652440b66223b66a4d3e9c0ddeddbf4a6560182fa38693bdc4d940ce43a2e" default)))
  '(package-selected-packages
    (quote
-    (pug-mode flycheck ace-window 0blayout ob-browser markdown-mode jabber pdf-tools avy schrute mode-icons tabbar evil yasnippet yaml-mode web-mode vline sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode projectile-rails powerline pollen-mode pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flx-ido expand-region epresent enh-ruby-mode emmet-mode eimp dumb-jump capture camcorder bufshow buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
- '(sublimity-scroll-weight 10))
+    (yasnippet yaml-mode web-mode vline tabbar sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot schrute rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode pug-mode projectile-rails powerline pollen-mode pdf-tools pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets ob-browser nodejs-repl neotree multiple-cursors monokai-theme mode-icons minimap markdown-mode magit lorem-ipsum js-comint jabber indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flycheck flx-ido expand-region evil epresent enh-ruby-mode emmet-mode eimp dumb-jump dracula-theme doom-themes color-theme-modern capture camcorder bufshow buffer-move avk-emacs-themes auto-complete atom-one-dark-theme ag ace-window ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(minimap-active-region-background ((t (:background "DarkSlateGray4")))))
+ )
+;; Global settings (defaults)
+(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+
+;; Enable flashing mode-line on errors
+(doom-themes-visual-bell-config)
+
+;; Enable custom neotree theme
+(doom-themes-neotree-config)  ; all-the-icons fonts must be installe
+
+(require 'solaire-mode)
+
+;; brighten buffers (that represent real files)
+(add-hook 'after-change-major-mode-hook #'turn-on-solaire-mode)
+
+;; ...if you use auto-revert-mode:
+(add-hook 'after-revert-hook #'turn-on-solaire-mode)
+
+;; You can do similar with the minibuffer when it is activated:
+(add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer)
+
+;; To enable solaire-mode unconditionally for certain modes:
+(add-hook 'ediff-prepare-buffer-hook #'solaire-mode)

@@ -1,11 +1,14 @@
-(add-to-list 'load-path "~/init_benchmark/benchmark-init-el/")
-(require 'benchmark-init-loaddefs)
-(benchmark-init/activate)
+(menu-bar-mode 0)
+
+(add-to-list 'exec-path "/usr/local/bin")
+(setenv "PATH" (mapconcat 'identity exec-path ":"))
+(add-to-list 'exec-path "/Library/TeX/texbin/")
+
 
 ;; startup frame size
 
-(add-to-list 'default-frame-alist '(height . 80))
-(add-to-list 'default-frame-alist '(width . 80))
+(add-to-list 'default-frame-alist '(height . 110))
+(add-to-list 'default-frame-alist '(width . 100))
 
 ;; Package Management
 
@@ -17,10 +20,11 @@
 ;; scroll one line at a time (less "jumpy" than defaults)
 
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 3))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
 ;; magit-mode
 
 (global-set-key (kbd "C-x m") 'magit-status)
@@ -75,11 +79,6 @@
 
 ;; Font Settings
 
-;; (add-to-list 'default-frame-alist
-;;              '(font . "Deja Vu Sans Mono 13"))
-
-(add-to-list 'default-frame-alist
-	     '(font . "Fira Mono 13"))
 
 ;; Line Numbering
 
@@ -138,6 +137,10 @@
 
 (require 'org)
 (require 'ob)
+;; (setq org-html-htmlize-output-type 'inline-css) ;; default
+(setq org-html-htmlize-output-type 'css)
+;; (setq org-html-htmlize-font-prefix "") ;; default
+(setq org-html-htmlize-font-prefix "org-")
 
 ;; make org mode allow eval of some langs
 
@@ -383,27 +386,27 @@
 (if (eq window-system 'ns)
     (progn
       (setq ns-command-modifier 'meta
-            ;none means OS X gets to handle "option" for accent
-            ;translations. "super" would let us use it as a "super" key.
-            ;"none" is probably what you want.
-            ;ns-option-modifier 'super
+                                        ;none means OS X gets to handle "option" for accent
+                                        ;translations. "super" would let us use it as a "super" key.
+                                        ;"none" is probably what you want.
+                                        ;ns-option-modifier 'super
             ns-option-modifier 'none
             mouse-wheel-scroll-amount '(0.001))
-      ;Inconsolata is really nice, but unfortunately it has few
-      ;extended unicode characters available.
-      ;(set-face-attribute 'default nil
-      ;                    :family "inconsolata" :height 180)
+                                        ;Inconsolata is really nice, but unfortunately it has few
+                                        ;extended unicode characters available.
+                                        ;(set-face-attribute 'default nil
+                                        ;                    :family "inconsolata" :height 180)
       (set-face-attribute 'default nil
-                          :family "menlo" :height 140)
+                          :family "DejaVu Sans Mono" :height 140)
       (set-face-attribute 'cursor nil
-                           :background "red")
+                          :background "red")
       (set-face-attribute 'mode-line nil
-                           :background "goldenrod")
+                          :background "goldenrod")
       ;; remove me -- does not seem to work
-      ;(add-to-list 'default-frame-alist '(cursor-color . "red"))
+                                        ;(add-to-list 'default-frame-alist '(cursor-color . "red"))
       ;; remove me -- does not seem to work
-      ;(set-face-background 'cursor "red")
-      ;(set-cursor-color "red")
+                                        ;(set-face-background 'cursor "red")
+                                        ;(set-cursor-color "red")
       ;; Was forced to do this to make sure color stays set!!!
       (add-hook 'after-make-frame-functions
 		(lambda (frame)
@@ -412,50 +415,24 @@
       (set-face-attribute 'trailing-whitespace nil
                           :background "gray")
       (add-to-list 'default-frame-alist '(top . 0))
-      ;(global-set-key "\C-c`" 'other-frame)
-      ;(global-set-key "\C-c~" 'ns-prev-frame)
+                                        ;(global-set-key "\C-c`" 'other-frame)
+                                        ;(global-set-key "\C-c~" 'ns-prev-frame)
       (global-set-key "\C-cc" 'ns-copy-including-secondary)
       )
   )
+
 
 (if (eq window-system 'x)
     (progn
       ;(set-default-font "Inconsolata-14")
       ; Probably should switch to dejavu, it is close to Menlo
       (set-face-attribute 'default nil
-			  :family "inconsolata" :height 135)
+			  :family "DejaVu Sans Mono" :height 85)
       (set-face-attribute 'cursor nil
 			  :background "red")
       (set-face-attribute 'trailing-whitespace nil
 			  :background "pink")
       (setq default-frame-alist '((scroll-bar-width . 10)))))
-
-
-;; custom theme
-
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (monokai)))
- '(custom-safe-themes
-   (quote
-    ("a800120841da457aa2f86b98fb9fd8df8ba682cebde033d7dbf8077c1b7d677a" default)))
- '(minimap-always-recenter t)
- '(minimap-window-location (quote right))
- '(package-selected-packages
-   (quote
-    (ob-browser markdown-mode jabber pdf-tools avy schrute mode-icons tabbar evil yasnippet yaml-mode web-mode vline sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode projectile-rails powerline pollen-mode pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets nodejs-repl neotree multiple-cursors monokai-theme minimap magit lorem-ipsum js-comint indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flx-ido expand-region epresent enh-ruby-mode emmet-mode eimp dumb-jump capture camcorder bufshow buffer-move auto-complete atom-one-dark-theme ag ace-jump-mode)))
- '(sublimity-scroll-weight 10))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(minimap-active-region-background ((t (:background "DarkSlateGray4")))))
-
 
 ;; split window toggle
 
@@ -485,3 +462,30 @@
       (if this-win-2nd (other-window 1))))))
 
 (global-set-key (kbd "C-x C-\\") 'toggle-window-split)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (doom-molokai)))
+ '(custom-safe-themes
+   (quote
+    ("f67652440b66223b66a4d3e9c0ddeddbf4a6560182fa38693bdc4d940ce43a2e" default)))
+ '(package-selected-packages
+   (quote
+    (solaire-mode yasnippet yaml-mode web-mode vline tabbar sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot schrute rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode pug-mode projectile-rails powerline pollen-mode pdf-tools pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets ob-browser nodejs-repl neotree multiple-cursors monokai-theme mode-icons minimap markdown-mode magit lorem-ipsum js-comint jabber indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flycheck flx-ido expand-region evil epresent enh-ruby-mode emmet-mode eimp dumb-jump dracula-theme doom-themes color-theme-modern capture camcorder bufshow buffer-move avk-emacs-themes auto-complete atom-one-dark-theme ag ace-window ace-jump-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+;; Global settings (defaults)
+(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+
+;; Enable flashing mode-line on errors
+(doom-themes-visual-bell-config)
+
+;; Enable custom neotree theme
+(doom-themes-neotree-config)  ; all-the-icons fonts must be installe

@@ -20,5 +20,6 @@
       '(
         ace-jump-mode
         helm-M-x
+        mark-whole-buffer
         toggle-frame-fullscreen
         ))
