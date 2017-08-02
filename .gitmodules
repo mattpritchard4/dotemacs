@@ -1,0 +1,27 @@
+[submodule "el-get/websocket"]
+	path = el-get/websocket
+	url = https://github.com/ahyatt/emacs-websocket.git
+[submodule "el-get/slack"]
+	path = el-get/slack
+	url = https://github.com/yuya373/emacs-slack.git
+[submodule "el-get/request"]
+	path = el-get/request
+	url = https://github.com/abingham/emacs-request.git
+[submodule "el-get/ht"]
+	path = el-get/ht
+	url = https://github.com/Wilfred/ht.el.git
+[submodule "el-get/emojify"]
+	path = el-get/emojify
+	url = https://github.com/iqbalansari/emacs-emojify.git
+[submodule "el-get/el-get"]
+	path = el-get/el-get
+	url = https://github.com/dimitri/el-get.git
+[submodule "el-get/deferred"]
+	path = el-get/deferred
+	url = https://github.com/kiwanami/emacs-deferred.git
+[submodule "el-get/circe"]
+	path = el-get/circe
+	url = https://github.com/jorgenschaefer/circe.git
+[submodule "el-get/alert"]
+	path = el-get/alert
+	url = https://github.com/jwiegley/alert.git

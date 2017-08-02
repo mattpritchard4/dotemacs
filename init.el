@@ -17,8 +17,46 @@
 (package-initialize)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; el-get
+
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "http://melpa.org/packages/"))
+  (package-refresh-contents)
+  (package-initialize)
+  (package-install 'el-get)
+  (require 'el-get))
+
+(el-get 'sync)
+
+;; slack
+
+(el-get-bundle slack)
+(use-package slack
+  :commands (slack-start)
+  :init
+  (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
+  (setq slack-prefer-current-team t)
+  :config
+  (slack-register-team
+   :name "emacs-slack"
+   :default t
+   :client-id "32933902148.217471437954"
+   :client-secret "3a134a5d5656121fcc192013ed13794e"
+   :token "xoxp-32933902148-79621724065-217402479795-177fc1529d29ea880087c5709848eb49"))
+
+(setq alert-default-style 'notifier)
+
 
 ;; scroll one line at a time (less "jumpy" than defaults)
+
 
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 3))) ;; one line at a time
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
@@ -474,7 +512,7 @@
     ("f67652440b66223b66a4d3e9c0ddeddbf4a6560182fa38693bdc4d940ce43a2e" default)))
  '(package-selected-packages
    (quote
-    (yasnippet yaml-mode web-mode vline tabbar sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens slack skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot schrute rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode pug-mode projectile-rails powerline pollen-mode pdf-tools pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets ob-browser nodejs-repl neotree multiple-cursors monokai-theme mode-icons minimap markdown-mode magit lorem-ipsum js-comint jabber indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flycheck flx-ido expand-region evil epresent enh-ruby-mode emmet-mode eimp dumb-jump dracula-theme doom-themes color-theme-modern capture camcorder bufshow buffer-move avk-emacs-themes auto-complete atom-one-dark-theme ag ace-window ace-jump-mode))))
+    (yasnippet yaml-mode web-mode vline tabbar sublimity sublime-themes speed-type smooth-scrolling smooth-scroll smartparens skewer-mode sicp sexy-monochrome-theme scss-mode scribble-mode screenshot schrute rvm ruby-refactor ruby-compilation rubocop rspec-mode robe rainbow-mode rainbow-delimiters racket-mode pug-mode projectile-rails powerline pollen-mode pdf-tools pastebin ox-twbs ox-reveal ox-ioslide ox-impress-js ox-html5slide org-tree-slide org-bullets ob-browser nodejs-repl neotree multiple-cursors monokai-theme mode-icons minimap markdown-mode magit lorem-ipsum js-comint jabber indent-guide impatient-mode helm-projectile helm-ag grizzl god-mode geiser fountain-mode flycheck flx-ido expand-region evil epresent enh-ruby-mode emmet-mode eimp dumb-jump dracula-theme doom-themes color-theme-modern capture camcorder bufshow buffer-move avk-emacs-themes auto-complete atom-one-dark-theme ag ace-window ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -486,7 +524,7 @@
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
 ;; Enable flashing mode-line on errors
-(doom-themes-visual-bell-config)
+;; (doom-themes-visual-bell-config)
 
 ;; Enable custom neotree theme
 (doom-themes-neotree-config)  ; all-the-icons fonts must be installe
